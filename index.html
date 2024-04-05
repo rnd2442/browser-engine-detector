@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>UA Parser Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js/src/ua-parser.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 16px; /* Default size, but you can adjust as needed */
+            line-height: 1.5; /* Good for readability */
+            color: #333; /* Default text color, choose what fits your design */
+        }
+
+        /* Style to center the content on the page */
+        .centered-content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            white-space: pre-wrap; /* To maintain formatting of the JSON */
+            text-align: left; /* Align the text to the left */
+            max-width: 80%; /* Limit the maximum width */
+        }
+    </style>
+</head>
+<body>
+
+<div id="result" class="centered-content"></div>
+
+<script>
+    var uap = new UAParser();
+    var result = uap.getResult();
+    // Converting the result object to a pretty-printed JSON string
+    var prettyJson = JSON.stringify(result, null, 2);
+
+    // Displaying the pretty-printed JSON in the div
+    document.getElementById('result').textContent = prettyJson;
+</script>
+
+</body>
+</html>
